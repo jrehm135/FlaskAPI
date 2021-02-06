@@ -6,5 +6,8 @@
     <img id="rotate_right" src={{ url_for('static', filename='iconfinder_object-rotate-right_23488.png') }}>
     <img id="up_icon" src={{ url_for('static', filename='up_icon.png') }}>
     <img id="down_icon" src={{ url_for('static', filename='down_icon.png') }}>
+    <script type="text/javascript">
+        var ip_address={{ data.ip_address|tojson }}
+    </script>
     <script type="text/javascript" src={{ url_for('static', filename='js/arm_icons.js') }}></script>
 </div>

@@ -4,6 +4,7 @@ import datetime
 
 from flask import Flask, request, render_template
 from flask_cors import CORS, cross_origin
+import socket
 import os
 #Try catch necessary to avoid os.uname failure on windows
 try:
@@ -19,13 +20,15 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 startTime = 0
+ip_address = socket.gethostbyname(socket.gethostname())
 
 class Servo():
     pass
 
 @app.route('/')
 def index():
-    return render_template("arm_page.html")
+    data = {'ip_address': ip_address}
+    return render_template("arm_page.html", data=data)
 
 @app.route('/move_arm', methods=['POST'])
 @cross_origin()
